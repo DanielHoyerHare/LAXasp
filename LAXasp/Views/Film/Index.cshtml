@@ -1,0 +1,68 @@
+﻿@model IEnumerable<LAXasp.Models.Film>
+
+@{
+    ViewBag.Title = "Film";
+}
+
+<h2>Liste over norminerede film</h2>
+<br />
+@using (Html.BeginForm("Index", "Film", FormMethod.Get))
+{
+    <p>
+        Title: @Html.TextBox("searchString") 
+        Genre: @Html.DropDownList("movieGenre","All")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instruktør)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Årstal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Længde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Genre)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instruktør)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Årstal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Længde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.FilmID })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>LAX</h2>
+    <hr/>
+    <p>Hvad er LAX? <b><u>@Html.ActionLink("About", "About", "Home")</u></b></p>
+    <p>Gå til filmliste: <b><u>@Html.ActionLink("Movies", "Index", "Film")</u></b></p>
+</div>
+
+<p>Kontakt former kan findes under contact</p>
+<a href="https://localhost:44307/Home/Contact" class="btn btn-default">Omdiriger &raquo;</a>
