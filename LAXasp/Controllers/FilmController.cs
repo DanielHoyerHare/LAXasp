@@ -14,9 +14,9 @@ namespace LAXasp.Controllers
     {
         private FilmDBContext db = new FilmDBContext();
 
-        // GET: Film
         public ActionResult Index(string movieGenre,string searchString)
         {
+            //Genre dropdown menu bliver fyldt med gyldige muligheder
             var GenreList = new List<string>();
             var GenreQuery = from d in db.Film orderby d.Genre select d.Genre;
             GenreList.AddRange(GenreQuery.Distinct());
@@ -24,6 +24,7 @@ namespace LAXasp.Controllers
 
             var movies = from m in db.Film select m;
 
+            // Sortere efter genre og titel hvis det er specificeret
             if (!string.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(s => s.Titel.Contains(searchString));

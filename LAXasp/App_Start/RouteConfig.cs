@@ -18,6 +18,11 @@ namespace LAXasp
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Film",
+                url: "{controller}/{action}/{movieGenre}/{searchString}",
+                defaults: new { controller = "Film", action = "Index", movieGenre = UrlParameter.Optional, searchString = UrlParameter.Optional}
+            );
         }
     }
 }

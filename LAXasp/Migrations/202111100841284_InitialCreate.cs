@@ -5,6 +5,7 @@
     
     public partial class InitialCreate : DbMigration
     {
+        //Migration af tabel
         public override void Up()
         {
             CreateTable(
